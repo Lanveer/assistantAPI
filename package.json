@@ -1,0 +1,39 @@
+{
+  "name": "mock-server",
+  "version": "1.0.0",
+  "description": "password management syste",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "webpack",
+    "react",
+    "mock",
+    "koa"
+  ],
+  "author": "daijingfeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daijingfeng/mock-server/issues"
+  },
+  "homepage": "https://github.com/daijingfeng/mock-server#readme",
+  "devDependencies": {
+    "koa-router": "^7.2.1",
+    "qs": "^6.5.1"
+  },
+  "dependencies": {
+    "glob": "^7.1.3",
+    "koa-body": "^4.1.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-compose": "^4.1.0",
+    "koa2": "^2.0.0-alpha.7",
+    "koa2-cors": "^2.0.6",
+    "mysql": "^2.17.1",
+    "path": "^0.12.7"
+  }
+}
