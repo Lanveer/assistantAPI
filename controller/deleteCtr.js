@@ -3,17 +3,10 @@ const dbs = require('../config/query');
 
 class listControler {
     // list
-    async editList(ctx, next) {
+    async deleteList(ctx, next) {
         let data = ctx.request.body;
-        let name = data.name,
-            pwd= data.pwd,
-            user= data.user,
-            tips=data.tips,
-            description=data.description;
         let id = ctx.query.id;
-        console.log('put data is:', data);
-        console.log('query data is:', id);
-        var sql = `update list set name= '${name}', user= '${user}',pwd = '${pwd}', tips = '${tips}', description ='${description} ' where id= ${id}`;
+        var sql = `update list set status = 1 where id=${id}`;
         let query = ()=>{
             return new Promise((resolve,reject)=>{
                 dbs.query(sql,(err,data) => {
@@ -27,19 +20,18 @@ class listControler {
             })
         };
         let result = await query();
-        console.log('result data is:', result);
         if(result. affectedRows && result. affectedRows ===1){
             let res = {
                 status:200,
                 result:'success',
-                msg:'编辑成功!',
+                msg:'删除成功!',
             };
             ctx.body = res;
         }else{
             let res = {
                 status:100,
                 result:'success',
-                msg:'编辑失败!',
+                msg:'删除失败!',
             };
             ctx.body = res;
         }

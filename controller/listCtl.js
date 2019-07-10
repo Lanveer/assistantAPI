@@ -51,8 +51,8 @@ class listControler {
             };
             let result = await query();
             let total = await query_count();
-            console.log('all dsata is:', result);
-            console.log('res dsata os:', total);
+            // console.log('all dsata is:', result);
+            // console.log('res dsata os:', total);
             let res = {
                 status:200,
                 result:'success',
