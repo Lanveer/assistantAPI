@@ -7,7 +7,7 @@
 * */
 
 const dbs = require('../config/query');
-class listControler {ｅ
+class listControler {
     // list
     async getList(ctx, next) {
         let ctx_query = ctx.query;
