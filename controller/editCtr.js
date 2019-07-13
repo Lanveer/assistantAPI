@@ -1,7 +1,7 @@
 // controllers/users/UserController.js
 const dbs = require('../config/query');
 
-class listControler {
+class editControler {
     // list
     async editList(ctx, next) {
         let data = ctx.request.body;
@@ -48,4 +48,4 @@ class listControler {
     }
 }
 
-module.exports = new listControler();
+module.exports = new editControler();
