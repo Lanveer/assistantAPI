@@ -12,6 +12,7 @@ const router = require('koa-router')();
 // router.get('/api/list-detail', listDetailControler.getDetail);
 
 const list= require('../controller/listCtl');
+const account_list= require('../controller/accountCtl');
 
 
 /*
@@ -26,6 +27,8 @@ router.get('/api/list-detail', list.detailListData.getDetail);
 /*
 * account system controller
 * */
+
+router.get('/api/accountlist', account_list.getListData.getList);
 
 
 
