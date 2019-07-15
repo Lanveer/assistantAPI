@@ -11,8 +11,19 @@ const router = require('koa-router')();
 // router.delete('/api/list', deleteCtr.deleteList);
 // router.get('/api/list-detail', listDetailControler.getDetail);
 
+const login= require('../controller/login');
 const list= require('../controller/listCtl');
 const account_list= require('../controller/accountCtl');
+
+/*
+* login api
+* user
+* password
+* */
+router.post('/api/login', login.login.doLogin);
+
+
+
 
 
 /*
