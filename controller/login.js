@@ -28,10 +28,13 @@ class loginControler {
             };
             let result = await query();
             let msg='';
-            let code =0
+            let code =0;
+            let currentUser ='';
             if(result && result.length !==0){
+                console.log('user is:', result[0].user)
                 msg= '登录成功';
-                code =200
+                code =200;
+                currentUser=result[0].user
             }else{
                 msg= '没有这个用户或者密码错误';
                 code= 300
@@ -39,6 +42,7 @@ class loginControler {
             let res = {
                 status:code,
                 result:msg,
+                data:currentUser
             };
             ctx.body = res;
         }
