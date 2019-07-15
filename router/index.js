@@ -40,6 +40,7 @@ router.get('/api/list-detail', list.detailListData.getDetail);
 * */
 
 router.get('/api/accountlist', account_list.getListData.getList);
+router.post('/api/accountlist', account_list.addListData.addCountList);
 
 
 

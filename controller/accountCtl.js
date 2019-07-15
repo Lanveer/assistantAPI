@@ -68,49 +68,54 @@ class listControler {
 
     }
 }
-// class addlistControler {
-//     // list
-//     async addList(ctx, next) {
-//         let add_data = ctx.request.body;
-//         let name = add_data.name,
-//             pwd= add_data.pwd,
-//             user= add_data.user,
-//             tips=add_data.tips,
-//             desciption=add_data.desciption;
-//         var sql = `insert into list (name,user,pwd,tips,description) values ('${name}', '${user}', ${pwd}, '${tips}', '${desciption}')`;
-//         let query = ()=>{
-//             return new Promise((resolve,reject)=>{
-//                 dbs.query(sql,(err,data) => {
-//                     if(err){
-//                         resolve({
-//                             message:err.message
-//                         })
-//                     }
-//                     resolve(data);
-//                 })
-//             })
-//         };
-//         let result = await query();
-//         if(result. affectedRows && result. affectedRows ===1) {
-//             let res = {
-//                 status:200,
-//                 result:'success',
-//                 msg:'添加成功!',
-//             };
-//             ctx.body = res;
-//         }else{
-//             let res = {
-//                 status:100,
-//                 result:'success',
-//                 msg:'添加失败!',
-//             };
-//             ctx.body = res;
-//         }
-//
-//
-//
-//     }
-// }
+class addlistControler {
+    // list
+    async addCountList(ctx, next) {
+        let add_data = ctx.request.body;
+        let item = add_data.item,
+            category= add_data.category,
+            num= add_data.num,
+            payMethods=add_data.payMethods,
+            consumptionPlace=add_data.consumptionPlace,
+            consumptionDate=add_data.consumptionDate,
+            consumer=add_data.consumer,
+            createTime=add_data.createTime,
+            tips=add_data.tips;
+        let  sql = `insert into account_list (item,category,num,payMethods,consumptionPlace,consumptionDate,consumer,createTime,tips) values ('${item}', '${category}', ${num}, '${payMethods}', '${consumptionPlace}', '${consumptionDate}','${consumer}','${createTime}','${tips}')`;
+        console.log('insert sql is:', sql);
+        let query = ()=>{
+            return new Promise((resolve,reject)=>{
+                dbs.query(sql,(err,data) => {
+                    if(err){
+                        resolve({
+                            message:err.message
+                        })
+                    }
+                    resolve(data);
+                })
+            })
+        };
+        let result = await query();
+        if(result. affectedRows && result. affectedRows ===1) {
+            let res = {
+                status:200,
+                result:'success',
+                msg:'添加成功!',
+            };
+            ctx.body = res;
+        }else{
+            let res = {
+                status:100,
+                result:'success',
+                msg:'添加失败!',
+            };
+            ctx.body = res;
+        }
+
+
+
+    }
+}
 // class editControler {
 //     // list
 //     async editList(ctx, next) {
@@ -220,13 +225,13 @@ class listControler {
 //     }
 // }
 let getListData = new listControler();
-// let addListData = new addlistControler();
+let addListData = new addlistControler();
 // let editListData = new editControler();
 // let deleteListData = new deleteControler();
 // let detailListData = new listDetailControler();
 module.exports = {
     getListData,
-    // addListData,
+    addListData,
     // editListData,
     // deleteListData,
     // detailListData,
