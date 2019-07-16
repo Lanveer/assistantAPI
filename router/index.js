@@ -39,9 +39,9 @@ router.get('/api/list-detail', list.detailListData.getDetail);
 * account system controller
 * */
 
-router.get('/api/accountlist', account_list.getListData.getList);
+router.get('/api/accountlist', account_list.getListData.getCountList);
 router.post('/api/accountlist', account_list.addListData.addCountList);
-
+router.put('/api/accountlist', account_list.editListData.editCountList);
 
 
 

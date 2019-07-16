@@ -10,7 +10,7 @@ let moment = require('moment');
 const dbs = require('../config/query');
 class listControler {
     // list
-    async getList(ctx, next) {
+    async getCountList(ctx, next) {
         let ctx_query = ctx.query;
         // 分页
         let page= ctx_query.page || 0;
@@ -132,52 +132,51 @@ class addlistControler {
 
     }
 }
-// class editControler {
-//     // list
-//     async editList(ctx, next) {
-//         let data = ctx.request.body;
-//         let name = data.name,
-//             pwd= data.pwd,
-//             user= data.user,
-//             tips=data.tips,
-//             description=data.description;
-//         let id = ctx.query.id;
-//         console.log('put data is:', data);
-//         console.log('query data is:', id);
-//         var sql = `update list set name= '${name}', user= '${user}',pwd = '${pwd}', tips = '${tips}', description ='${description} ' where id= ${id}`;
-//         let query = ()=>{
-//             return new Promise((resolve,reject)=>{
-//                 dbs.query(sql,(err,data) => {
-//                     if(err){
-//                         resolve({
-//                             message:err.message
-//                         })
-//                     }
-//                     resolve(data);
-//                 })
-//             })
-//         };
-//         let result = await query();
-//         console.log('result data is:', result);
-//         if(result. affectedRows && result. affectedRows ===1){
-//             let res = {
-//                 status:200,
-//                 result:'success',
-//                 msg:'编辑成功!',
-//             };
-//             ctx.body = res;
-//         }else{
-//             let res = {
-//                 status:100,
-//                 result:'success',
-//                 msg:'编辑失败!',
-//             };
-//             ctx.body = res;
-//         }
-//
-//
-//     }
-// }
+class editControler {
+    // list
+    async editCountList(ctx, next) {
+        let data = ctx.request.body;
+        let item = data.item,
+            num= data.num,
+            category= data.category,
+            payMethods=data.payMethods,
+            consumptionPlace=data.consumptionPlace,
+            consumer=data.consumer,
+            tips=data.tips;
+        let id = ctx.query.id;
+        let sql = `update account_list set item= '${item}', num= '${num}',category = '${category}', payMethods = '${payMethods}', consumptionPlace ='${consumptionPlace}', consumer ='${consumer}', tips ='${tips}' where id= ${id}`;
+        let query = ()=>{
+            return new Promise((resolve,reject)=>{
+                dbs.query(sql,(err,data) => {
+                    if(err){
+                        resolve({
+                            message:err.message
+                        })
+                    }
+                    resolve(data);
+                })
+            })
+        };
+        let result = await query();
+        if(result. affectedRows && result. affectedRows ===1){
+            let res = {
+                status:200,
+                result:'success',
+                msg:'编辑成功!',
+            };
+            ctx.body = res;
+        }else{
+            let res = {
+                status:100,
+                result:'success',
+                msg:'编辑失败!',
+            };
+            ctx.body = res;
+        }
+
+
+    }
+}
 // class deleteControler {
 //     // list
 //     async deleteList(ctx, next) {
@@ -242,13 +241,13 @@ class addlistControler {
 // }
 let getListData = new listControler();
 let addListData = new addlistControler();
-// let editListData = new editControler();
+let editListData = new editControler();
 // let deleteListData = new deleteControler();
 // let detailListData = new listDetailControler();
 module.exports = {
     getListData,
     addListData,
-    // editListData,
+    editListData,
     // deleteListData,
     // detailListData,
 };
