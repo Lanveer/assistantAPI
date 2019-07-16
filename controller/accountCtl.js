@@ -6,6 +6,7 @@
 * total 总条数
 * */
 
+let moment = require('moment');
 const dbs = require('../config/query');
 class listControler {
     // list
@@ -51,12 +52,27 @@ class listControler {
             };
             let result = await query();
             let total = await query_count();
-            // console.log('all dsata is:', result);
-            // console.log('res dsata os:', total);
+            // loop &&　deal single data
+            let arr=[];
+            result.forEach(item=>{
+                let  temp={};
+                temp.id= item.id;
+                temp.item= item.item;
+                temp.num= item.num;
+                temp.category= item.category;
+                temp.payMethods= item.payMethods;
+                temp.consumptionPlace= item.consumptionPlace;
+                temp.consumptionDate= moment(item.consumptionDate).format('YYYY-MM-DD HH:mm:ss');
+                temp.createTime= moment(item.createTime).format('YYYY-MM-DD HH:mm:ss');
+                temp.consumer= item.consumer;
+                temp.tips= item.tips;
+                temp.status= item.status;
+                arr.push(temp);
+            });
             let res = {
                 status:200,
                 result:'success',
-                data:result,
+                data:arr,
                 total:total[0].total
             };
             ctx.body = res;
