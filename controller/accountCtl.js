@@ -57,7 +57,7 @@ class listControler {
             result.forEach(item=>{
                 let  temp={};
                 temp.id= item.id;
-                temp.item= item.item;
+                temp.name= item.name;
                 temp.num= item.num;
                 temp.category= item.category;
                 temp.payMethods= item.payMethods;
@@ -88,7 +88,7 @@ class addlistControler {
     // list
     async addCountList(ctx, next) {
         let add_data = ctx.request.body;
-        let item = add_data.item,
+        let name = add_data.name,
             category= add_data.category,
             num= add_data.num,
             payMethods=add_data.payMethods,
@@ -97,7 +97,7 @@ class addlistControler {
             consumer=add_data.consumer,
             createTime=add_data.createTime,
             tips=add_data.tips;
-        let  sql = `insert into account_list (item,category,num,payMethods,consumptionPlace,consumptionDate,consumer,createTime,tips) values ('${item}', '${category}', ${num}, '${payMethods}', '${consumptionPlace}', '${consumptionDate}','${consumer}','${createTime}','${tips}')`;
+        let  sql = `insert into account_list (name,category,num,payMethods,consumptionPlace,consumptionDate,consumer,createTime,tips) values ('${name}', '${category}', ${num}, '${payMethods}', '${consumptionPlace}', '${consumptionDate}','${consumer}','${createTime}','${tips}')`;
         console.log('insert sql is:', sql);
         let query = ()=>{
             return new Promise((resolve,reject)=>{
@@ -136,7 +136,7 @@ class editControler {
     // list
     async editCountList(ctx, next) {
         let data = ctx.request.body;
-        let item = data.item,
+        let name = data.name,
             num= data.num,
             category= data.category,
             payMethods=data.payMethods,
@@ -146,7 +146,7 @@ class editControler {
             consumptionDate=data.consumptionDate,
             createTime=data.createTime;
         let id = ctx.query.id;
-        let sql = `update account_list set item= '${item}', num= '${num}',category = '${category}', payMethods = '${payMethods}', consumptionPlace ='${consumptionPlace}', consumer ='${consumer}', tips ='${tips}', createTime='${createTime}' ,consumptionDate='${consumptionDate}' where id= ${id}`;
+        let sql = `update account_list set name= '${name}', num= '${num}',category = '${category}', payMethods = '${payMethods}', consumptionPlace ='${consumptionPlace}', consumer ='${consumer}', tips ='${tips}', createTime='${createTime}' ,consumptionDate='${consumptionDate}' where id= ${id}`;
         let query = ()=>{
             return new Promise((resolve,reject)=>{
                 dbs.query(sql,(err,data) => {

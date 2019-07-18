@@ -12,6 +12,7 @@ const router = require('koa-router')();
 // router.get('/api/list-detail', listDetailControler.getDetail);
 
 const login= require('../controller/login');
+const search= require('../controller/search');
 const list= require('../controller/listCtl');
 const account_list= require('../controller/accountCtl');
 
@@ -21,6 +22,15 @@ const account_list= require('../controller/accountCtl');
 * password
 * */
 router.post('/api/login', login.login.doLogin);
+
+
+/*
+* 搜索接口
+* 接收一个标志来区分去查询哪张表
+* 使用模糊查询
+* */
+
+router.post('/api/search', search.search.doSearch);
 
 
 
