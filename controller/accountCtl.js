@@ -54,8 +54,9 @@ class listControler {
             let total = await query_count();
             // loop &&　deal single data
             let arr=[];
-            result.forEach(item=>{
+            result.forEach((item, idx)=>{
                 let  temp={};
+                temp.idx=idx+1;
                 temp.id= item.id;
                 temp.name= item.name;
                 temp.num= item.num;
@@ -80,8 +81,6 @@ class listControler {
         catch (e) {
             console.log('err is:', e)
         }
-
-
     }
 }
 class addlistControler {
