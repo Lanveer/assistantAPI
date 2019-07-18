@@ -29,7 +29,9 @@ class searchControler {
             let result = await query();
             let res = {
                 status:200,
-                data:result
+                result:'success',
+                data:result,
+                total:result && result.length
             };
             ctx.body = res;
         }
