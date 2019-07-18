@@ -23,7 +23,7 @@ class listControler {
              var end = parseInt(pagesize) || 20;
         }
         try {
-            var sql = `select * from account_list where status = 0 limit ${start ||0}, ${end ||20}`;
+            var sql = `select * from account_list where status = 0 order by id  limit ${start ||0}, ${end ||20} `;
             console.log('sql is:',sql);
             var sql_count = `select count(*) as total from account_list where status = 0`;
             let query = ()=>{
@@ -142,9 +142,11 @@ class editControler {
             payMethods=data.payMethods,
             consumptionPlace=data.consumptionPlace,
             consumer=data.consumer,
-            tips=data.tips;
+            tips=data.tips,
+            consumptionDate=data.consumptionDate,
+            createTime=data.createTime;
         let id = ctx.query.id;
-        let sql = `update account_list set item= '${item}', num= '${num}',category = '${category}', payMethods = '${payMethods}', consumptionPlace ='${consumptionPlace}', consumer ='${consumer}', tips ='${tips}' where id= ${id}`;
+        let sql = `update account_list set item= '${item}', num= '${num}',category = '${category}', payMethods = '${payMethods}', consumptionPlace ='${consumptionPlace}', consumer ='${consumer}', tips ='${tips}', createTime='${createTime}' ,consumptionDate='${consumptionDate}' where id= ${id}`;
         let query = ()=>{
             return new Promise((resolve,reject)=>{
                 dbs.query(sql,(err,data) => {
