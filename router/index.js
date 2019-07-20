@@ -15,6 +15,7 @@ const login= require('../controller/login');
 const search= require('../controller/search');
 const list= require('../controller/listCtl');
 const account_list= require('../controller/accountCtl');
+const book_list= require('../controller/bookCtl');
 
 /*
 * login api
@@ -31,9 +32,6 @@ router.post('/api/login', login.login.doLogin);
 * */
 
 router.post('/api/search', search.search.doSearch);
-
-
-
 
 
 /*
@@ -53,6 +51,15 @@ router.get('/api/accountlist', account_list.getListData.getCountList);
 router.post('/api/accountlist', account_list.addListData.addCountList);
 router.put('/api/accountlist', account_list.editListData.editCountList);
 router.delete('/api/accountlist', account_list.deleteListData.deleteCountList);
+
+
+
+/*
+* book management system
+*
+* */
+
+router.get('/api/book_list', book_list.getListData.getBooktList);
 
 
 
