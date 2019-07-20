@@ -174,8 +174,6 @@ class editControler {
             };
             ctx.body = res;
         }
-
-
     }
 }
 class deleteControler {

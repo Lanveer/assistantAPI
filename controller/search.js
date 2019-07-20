@@ -1,9 +1,9 @@
-// controllers/users/UserController.js
+// controllers/users/searchController.js
 
 /*
-* page  当前页数
-* pagesize  每次返回的条数
-* total 总条数
+* flag  查询哪张表
+* name  模糊查询的参数
+* res   返回值
 * */
 
 const dbs = require('../config/query');
