@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 15/07/2019 17:43:44
+ Date: 20/07/2019 19:13:23
 */
 
 SET NAMES utf8mb4;
@@ -23,7 +23,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `account_list`;
 CREATE TABLE `account_list`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `item` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `category` char(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `num` bigint(255) NULL DEFAULT NULL,
   `payMethods` char(16) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -34,12 +34,13 @@ CREATE TABLE `account_list`  (
   `tips` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of account_list
 -- ----------------------------
-INSERT INTO `account_list` VALUES (5, '21321', 'clothing', 7, 'aliPay', '213213', '2019-07-16 17:26:03', '123213', '2019-07-17 17:26:06', '12321', 0);
-INSERT INTO `account_list` VALUES (6, '买手机', 'transport', 12345, 'cash', '四川', '2019-07-15 17:36:50', '樊亮', '2019-07-09 17:36:55', 'iphone7plus', 0);
+INSERT INTO `account_list` VALUES (11, '324', 'eating', 324, 'aliPay', '234', '2019-07-18 15:25:47', '234', '2019-07-18 15:25:47', '234324', 0);
+INSERT INTO `account_list` VALUES (10, 'qwe', 'clothing', 2, 'cash', '23', '2019-07-18 15:27:20', '23', '2019-07-18 17:53:58', '324', 0);
+INSERT INTO `account_list` VALUES (9, '1', 'eating', 1, 'cash', '11', '2019-07-11 14:39:19', '123213', '2019-07-18 17:53:58', '11111', 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
