@@ -61,14 +61,15 @@ class listControler {
                 temp.name= item.name;
                 temp.author= item.author;
                 temp.content= item.content;
-                temp.status= item.status;
+                temp.book_status= item.book_status;
                 temp.publish= item.publish;
                 temp.create_time= moment(item.create_time).format('YYYY-MM-DD HH:mm:ss');
                 temp.category= item.category;
                 temp.cover= item.cover;
-                temp.from= item.from;
+                temp.origin= item.origin;
                 temp.price= item.price;
                 temp.recorder= item.recorder;
+                temp.status= item.status;
                 temp.tips= item.tips;
                 arr.push(temp);
             });
@@ -87,18 +88,22 @@ class listControler {
 }
 class addlistControler {
     // list
-    async addCountList(ctx, next) {
+    async addBookList(ctx, next) {
         let add_data = ctx.request.body;
         let name = add_data.name,
-            category= add_data.category,
-            num= add_data.num,
-            payMethods=add_data.payMethods,
-            consumptionPlace=add_data.consumptionPlace,
-            consumptionDate=add_data.consumptionDate,
-            consumer=add_data.consumer,
-            createTime=add_data.createTime,
+            author= add_data.author,
+            content= add_data.content,
+            book_status=add_data.book_status,
+            publish=add_data.publish,
+            create_time=add_data.create_time,
+            category=add_data.category,
+            cover=add_data.cover,
+            origin=add_data.origin,
+            price=add_data.price,
+            recorder=add_data.recorder,
+            status=add_data.status,
             tips=add_data.tips;
-        let  sql = `insert into account_list (name,category,num,payMethods,consumptionPlace,consumptionDate,consumer,createTime,tips) values ('${name}', '${category}', ${num}, '${payMethods}', '${consumptionPlace}', '${consumptionDate}','${consumer}','${createTime}','${tips}')`;
+        let  sql = `insert into book_list (name, author, content, book_status, publish, create_time, category, cover, origin, price, recorder, tips, status) values ('${name}', '${author}', '${content}', '${book_status}', '${publish}', '${create_time}','${category}','${cover}','${origin}', '${price}', '${recorder}', '${tips}','${status}')`;
         console.log('insert sql is:', sql);
         let query = ()=>{
             return new Promise((resolve,reject)=>{
@@ -123,7 +128,7 @@ class addlistControler {
         }else{
             let res = {
                 status:100,
-                result:'success',
+                result:'error',
                 msg:'添加失败!',
             };
             ctx.body = res;
@@ -135,19 +140,24 @@ class addlistControler {
 }
 class editControler {
     // list
-    async editCountList(ctx, next) {
-        let data = ctx.request.body;
-        let name = data.name,
-            num= data.num,
-            category= data.category,
-            payMethods=data.payMethods,
-            consumptionPlace=data.consumptionPlace,
-            consumer=data.consumer,
-            tips=data.tips,
-            consumptionDate=data.consumptionDate,
-            createTime=data.createTime;
+    async editBookList(ctx, next) {
+        let add_data = ctx.request.body;
+        let name = add_data.name,
+            author= add_data.author,
+            content= add_data.content,
+            book_status=add_data.book_status,
+            publish=add_data.publish,
+            create_time=add_data.create_time,
+            category=add_data.category,
+            cover=add_data.cover,
+            origin=add_data.origin,
+            price=add_data.price,
+            recorder=add_data.recorder,
+            status=add_data.status,
+            tips=add_data.tips;
         let id = ctx.query.id;
-        let sql = `update account_list set name= '${name}', num= '${num}',category = '${category}', payMethods = '${payMethods}', consumptionPlace ='${consumptionPlace}', consumer ='${consumer}', tips ='${tips}', createTime='${createTime}' ,consumptionDate='${consumptionDate}' where id= ${id}`;
+        let sql = `update book_list set name= '${name}', author= '${author}',content = '${content}', book_status = '${book_status}', publish ='${publish}', create_time ='${create_time}', category ='${category}', cover='${cover}' ,origin='${origin}', price ='${price}',recorder='${recorder}', status='${status}',tips='${tips}' where id= ${id}`;
+      console.log('edit sql is:',sql)
         let query = ()=>{
             return new Promise((resolve,reject)=>{
                 dbs.query(sql,(err,data) => {
@@ -180,10 +190,10 @@ class editControler {
 }
 class deleteControler {
     // list
-    async deleteCountList(ctx, next) {
+    async deleteBookList(ctx, next) {
         let data = ctx.request.body;
         let id = ctx.query.id;
-        var sql = `update account_list set status = 1 where id=${id}`;
+        var sql = `update book_list set status = 1 where id=${id}`;
         let query = ()=>{
             return new Promise((resolve,reject)=>{
                 dbs.query(sql,(err,data) => {

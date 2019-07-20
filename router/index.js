@@ -60,7 +60,8 @@ router.delete('/api/accountlist', account_list.deleteListData.deleteCountList);
 * */
 
 router.get('/api/book_list', book_list.getListData.getBooktList);
-
-
+router.post('/api/book_list', book_list.addListData.addBookList);
+router.put('/api/book_list', book_list.editListData.editBookList);
+router.delete('/api/book_list', book_list.deleteListData.deleteBookList);
 
 module.exports = router;
