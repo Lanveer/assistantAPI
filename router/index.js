@@ -13,6 +13,7 @@ const router = require('koa-router')();
 
 const login= require('../controller/login');
 const search= require('../controller/search');
+const upload= require('../controller/upload');
 const list= require('../controller/listCtl');
 const account_list= require('../controller/accountCtl');
 const book_list= require('../controller/bookCtl');
@@ -24,6 +25,13 @@ const book_list= require('../controller/bookCtl');
 * */
 router.post('/api/login', login.login.doLogin);
 
+
+
+/*
+*  upload pics interface
+* */
+
+router.post('/api/upload', upload.upload.doUpload);
 
 /*
 * 搜索接口
