@@ -18,13 +18,13 @@ class listControler {
         if(page<=0) {
             page=1;
         }else{
-            console.log('page is:', page);
+            // console.log('page is:', page);
              var start = parseInt((page-1)*pagesize) || 0;
              var end = parseInt(pagesize) || 20;
         }
         try {
             var sql = `select * from book_list where status = 0 order by id  limit ${start ||0}, ${end ||20} `;
-            console.log('sql is:',sql);
+            // console.log('sql is:',sql);
             var sql_count = `select count(*) as total from book_list where status = 0`;
             let query = ()=>{
                 return new Promise((resolve,reject)=>{
@@ -82,7 +82,7 @@ class listControler {
             ctx.body = res;
         }
         catch (e) {
-            console.log('err is:', e)
+            // console.log('err is:', e)
         }
     }
 }
@@ -104,7 +104,7 @@ class addlistControler {
             status=add_data.status,
             tips=add_data.tips;
         let  sql = `insert into book_list (name, author, content, book_status, publish, create_time, category, cover, origin, price, recorder, tips, status) values ('${name}', '${author}', '${content}', '${book_status}', '${publish}', '${create_time}','${category}','${cover}','${origin}', '${price}', '${recorder}', '${tips}','${status}')`;
-        console.log('insert sql is:', sql);
+        // console.log('insert sql is:', sql);
         let query = ()=>{
             return new Promise((resolve,reject)=>{
                 dbs.query(sql,(err,data) => {
