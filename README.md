@@ -16,11 +16,3 @@ npm install
 npm run mock
 ```
 ### postman测试接口
-+ 获取列表(示例接口：`http://localhost:3000/api/getlist/0/5`)
- ![getlist](http://owio6b4eo.bkt.clouddn.com/getlist.png)
-+ 获取详情(示例接口：`http://localhost:3000/api/getdetail/1`)
- ![getdetail](http://owio6b4eo.bkt.clouddn.com/getdetail.png)
-+ 提交评价成功
- ![comment](http://owio6b4eo.bkt.clouddn.com/comment-ok.png)
-+ 提交评价失败
- ![comment](http://owio6b4eo.bkt.clouddn.com/comment-err.png)
