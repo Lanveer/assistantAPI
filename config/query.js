@@ -6,6 +6,7 @@ module.exports = {
         var connection = mysql.createConnection(config);
         connection.connect(function (err) {
             if(err) {
+                // console.log('err is:', err);
                 throw new Error('connect fail for:',err.stack);
             }
             connection.query(sql, params, function (err, results,fields) {
