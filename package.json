@@ -16,12 +16,12 @@
     "mock",
     "koa"
   ],
-  "author": "daijingfeng",
+  "author": "lanveer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/daijingfeng/mock-server/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/daijingfeng/mock-server#readme",
+  "homepage": "https:lanveer.tk",
   "devDependencies": {
     "koa-router": "^7.2.1",
     "qs": "^6.5.1"
