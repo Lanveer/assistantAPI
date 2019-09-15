@@ -76,8 +76,8 @@ class addlistControler {
             pwd= add_data.pwd,
             user= add_data.user,
             tips=add_data.tips,
-            desciption=add_data.desciption;
-        let sql = `insert into list (name,user,pwd,tips,description) values ('${name}', '${user}', '${pwd}', '${tips}', '${desciption}')`;
+            description=add_data.description;
+        let sql = `insert into list (name,user,pwd,tips,description) values ('${name}', '${user}', '${pwd}', '${tips}', '${description}')`;
         let query = ()=>{
             return new Promise((resolve,reject)=>{
                 dbs.query(sql,(err,data) => {

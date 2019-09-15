@@ -22,8 +22,8 @@ class listControler {
              var start = parseInt((page-1)*pagesize) || 0;
              var end = parseInt(pagesize) || 20;
         }
-        try {
-            var sql = `select * from account_list where status = 0 order by id  limit ${start ||0}, ${end ||20} `;
+        try {account_list
+            var sql = `select * from  where status = 0 order by id  limit ${start ||0}, ${end ||20} `;
             console.log('sql is:',sql);
             var sql_count = `select count(*) as total from account_list where status = 0`;
             let query = ()=>{
