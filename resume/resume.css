@@ -73,6 +73,9 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px dashed #ccc;
 }
+.exp-box:last-child {
+  border-bottom: none;
+}
 .desc {
   font-size: 14px;
   margin-bottom: 10px;
@@ -190,6 +193,9 @@ body {
   margin-left: 10px;
   line-height: 180%;
   color: #333;
+}
+.pro-box:last-child {
+  border-bottom: none;
 }
 .edus {
   display: flex;
