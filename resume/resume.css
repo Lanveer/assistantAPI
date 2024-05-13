@@ -1,153 +1,218 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-body{
-    font-family: "Heiti SC";
-    background: #000;
+body {
+  font-family: "Heiti SC";
+  background: #000;
 }
-.container{
-    width:820px;
-    height: auto;
-    overflow: hidden;
-    margin: 20px auto;
-    background: #fff;
-}
-
-.item{
-    width: 95%;
-    margin: 0 auto 20px;
-    height: auto;
-    overflow: hidden;
+.container {
+  width: 820px;
+  height: auto;
+  overflow: hidden;
+  margin: 20px auto;
+  background: #fff;
 }
 
-.item>h1{
-    font-weight: bold;
-    font-size: 16px;
-    color: #333;
-    border-top: 2px solid mediumseagreen;
-    padding: 10px;
-    margin-bottom: 20px;
-    text-shadow: #cccccc;
+.item {
+  width: 95%;
+  margin: 0 auto 20px;
+  height: auto;
+  overflow: hidden;
 }
 
-.info>ul{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: space-around;
-}
-.info>ul>li{
-    /*width: 25%;*/
-    font-size: 14px;
-    color: #333;
-    list-style: none;
-}
-.info>ul>li:first-child{
-    margin-left: 10px;
-}
-.info>ul>li>span{
-    margin-right: 5px;
-}
-.zj>p{
-    font-size: 14px;
-    line-height: 180%;
-    color: #333;
-    margin-left: 10px;
-}
-.exp{}
-.exp-box{
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px dashed #ccc;
-}
-.exp-con{
-    height: auto;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-.exp-con-left{
-    width: 45%;
-    float: left;
-}
-.exp-con-left>h1{
-    font-size: 14px;
-    font-weight: bold;
-    margin-left: 10px;
-    margin-bottom: 5px;
-}
-.exp-con-left>p{
-    font-size: 14px;
-    margin-left: 10px;
-}
-.exp-con-left>p>i{
-    font-size: 14px;
-    margin-left: 20px;
+.item > h1 {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 2px solid mediumseagreen;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-shadow: #cccccc;
 }
 
-.exp-con-right{
-    width: 45%;
-    float: right;
-    text-align: right;
+.info > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: flex-start;
+  text-align: left;
 }
-.exp-con-right>p{
-    margin-right: 10px;
-    font-size: 14px;
-    margin-bottom: 5px;
+.info > ul > li {
+  width: 33%;
+  font-size: 14px;
+  color: #333;
+  list-style: none;
+  text-align: left;
 }
-.exp-desc{
-    height: auto;
-    overflow: hidden;
+.info > ul > li:first-child {
+  margin-left: 10px;
 }
-.exp-desc>h1{
-    font-weight: bold;
-    font-size: 14px;
-    margin: 0 0 10px 10px;
+.info > ul > li > span {
+  margin-right: 5px;
 }
-.exp-desc>p{
-    font-size: 14px;
-    margin-left: 10px;
-    line-height: 180%;
-    color: #333;
+.zj > p {
+  font-size: 14px;
+  line-height: 180%;
+  color: #333;
+  margin-left: 10px;
 }
-
-
-
-.pro{
-    height: auto;
-    overflow: hidden;
+.exp {
 }
 
-.pro-box{
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px dashed #ccc;
+.exp p {
+  font-size: 14px;
+  margin-left: 10px;
+  line-height: 180%;
+  color: #333;
+  /* width: 60%; */
 }
-.pro-box>h1{
-    font-weight: bold;
-    font-size: 14px;
-    margin: 0 0 10px 10px;
+.exp-box {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
 }
-.pro-box>h2{
-    font-size: 14px;
-    color: #333;
-    margin: 0 0 10px 10px;
+.desc {
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-weight: normal;
 }
-.pro-box>h3{
-    font-size: 14px;
-    color: #333;
-    margin: 0 0 10px 10px;
+.exp-con {
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
-.pro-box>p{
-    font-size: 14px;
-    margin-left: 10px;
-    line-height: 180%;
-    color: #333;
+.exp-con-left {
+  width: 45%;
+  float: left;
 }
-.edu>p{
-    font-size: 14px;
-    margin-left: 10px;
-    line-height: 180%;
-    color: #333;
+.exp-con > h1 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+.exp-con > p {
+  font-size: 15px;
+  margin-left: 10px;
+  width: 30%;
+  /* font-weight: bolder; */
+}
+.exp-con > p > i {
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.exp-con-right {
+  width: 45%;
+  float: right;
+  text-align: right;
+}
+.exp-con-right > p {
+  margin-right: 10px;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.exp-desc {
+  height: auto;
+  overflow: hidden;
+}
+.exp-desc > h1 {
+  font-weight: normal;
+  font-size: 14px;
+  margin: 0 0 10px 10px;
+}
+.exp-desc > p {
+  font-size: 14px;
+  margin-left: 10px;
+  line-height: 180%;
+  color: #333;
+}
+
+.pro {
+  height: auto;
+  overflow: hidden;
+}
+
+.pro-box {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.infos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-company {
+  font-size: 14px;
+  margin: 0 0 10px 10px;
+  font-weight: normal;
+}
+.info-date {
+  font-weight: normal;
+  font-size: 14px;
+  color: #333;
+  margin: 0 0 10px 10px;
+}
+.info-desc {
+  font-size: 14px;
+  color: #333;
+  margin: 0 0 10px 10px;
+}
+
+.pro-box > h1 {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 0 10px 10px;
+}
+.pro-box > h2 {
+  font-size: 14px;
+  color: #333;
+  margin: 0 0 10px 10px;
+}
+.pro-box > h3 {
+  font-size: 14px;
+  color: #333;
+  margin: 0 0 10px 10px;
+}
+.pro-box > p {
+  font-size: 14px;
+  margin-left: 10px;
+  line-height: 180%;
+  color: #333;
+}
+.edus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.edu p {
+  font-size: 14px;
+  margin-left: 10px;
+  line-height: 180%;
+  color: #333;
+  width: 33%;
+}
+
+.pro-desc {
+  margin-left: 10px;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+  line-height: 18px;
+}
+
+.pro-desc > p {
+  margin-bottom: 10px;
 }
