@@ -3,11 +3,11 @@
   padding: 0;
 }
 body {
-  font-family: "Heiti SC";
-  background: #000;
+  font-family: "Heiti SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: #f5f5f5;
 }
 .container {
-  width: 820px;
+  max-width: 820px;
   height: auto;
   overflow: hidden;
   margin: 20px auto;
@@ -28,7 +28,7 @@ body {
   border-bottom: 2px solid mediumseagreen;
   padding: 10px;
   margin-bottom: 20px;
-  text-shadow: #cccccc;
+  text-shadow: 1px 1px 0 #cccccc;
 }
 
 .info > ul {

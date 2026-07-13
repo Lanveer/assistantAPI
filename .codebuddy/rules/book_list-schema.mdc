@@ -1,0 +1,54 @@
+---
+alwaysApply: false
+description: book_list 表的数据库结构定义，包含字段说明、约束和分类枚举值。当涉及图书管理模块的 API 开发、SQL 查询或数据校验时引用此规则。
+---
+
+# Book List 数据库表结构
+
+基于 [book_list.sql](mdc:sql/book_list.sql) 的建表定义，`book_list` 表用于图书管理系统，对应控制器为 [bookCtl.js](mdc:controller/bookCtl.js)，路由为 `/api/book_list`。
+
+## 表结构
+
+| 字段 | 类型 | 约束 | 说明 |
+|------|------|------|------|
+| `id` | int(11) | NOT NULL, AUTO_INCREMENT, PRIMARY KEY | 图书唯一标识 |
+| `name` | varchar(255) | NOT NULL | 图书名称 |
+| `author` | varchar(255) | NOT NULL | 作者 |
+| `content` | varchar(255) | NOT NULL | 图书内容/简介 |
+| `book_status` | char(64) | NOT NULL | 图书状态（如"在家"/"在架"/"借出"） |
+| `publish` | varchar(255) | NULL DEFAULT NULL | 出版社 |
+| `category` | varchar(255) | NOT NULL | 分类 |
+| `cover` | varchar(255) | NOT NULL | 封面图片路径 |
+| `origin` | varchar(255) | NOT NULL | 图书来源（如"tushuguan"/"公司"） |
+| `price` | decimal(10,2) | NOT NULL | 价格 |
+| `create_time` | timestamp | NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP | 创建/更新时间（自动维护） |
+| `recorder` | varchar(255) | NOT NULL | 记录人 |
+| `tips` | varchar(255) | NOT NULL | 备注/提示 |
+| `status` | int(11) | NOT NULL DEFAULT 0 | 记录状态（0=正常, 1=已删除/禁用） |
+
+## 分类枚举值（category）
+
+已知分类值来自示例数据：
+- `tool_books` — 工具书
+- `fids` — 金融类（示例数据）
+- `other` — 其他
+
+## 图书状态枚举值（book_status）
+
+已知状态值：
+- `在家` / `在架` — 可用状态
+- `借出` — 借出状态（推测）
+
+## 来源枚举值（origin）
+
+已知来源值：
+- `tushuguan` — 图书馆
+- `公司` — 公司资源
+
+## 开发注意事项
+
+1. **SQL 注入风险**：当前控制器采用字符串拼接构建 SQL，修改图书相关代码时应优先使用参数化查询
+2. **status 字段**：0 表示正常记录，1 表示已删除/禁用，查询列表时应过滤 `status = 0`
+3. **create_time**：由数据库自动维护，API 层不应手动设置此字段
+4. **decimal 精度**：`price` 使用 decimal(10,2)，前端展示和比较时注意精度问题
+5. **表引擎**：使用 MyISAM，不支持事务，如需事务支持应考虑迁移至 InnoDB
