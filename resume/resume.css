@@ -125,6 +125,7 @@ body {
 .exp-desc {
   height: auto;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 .exp-desc > h1 {
   font-weight: normal;
